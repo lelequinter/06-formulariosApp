@@ -14,9 +14,7 @@
             formControlName="nombre"
             placeholder="Nombre del producto"
           />
-          <span class="form-text text-danger">
-            Debe de ser de 3 letras
-          </span>
+          <span class="form-text text-danger"> Debe de ser de 3 letras </span>
         </div>
       </div>
       <!-- Campo de precio -->
@@ -29,7 +27,7 @@
             formControlName="precio"
             placeholder="Precio del producto"
           />
-          <span class="form-text text-danger" >
+          <span class="form-text text-danger">
             El precio debe de ser 0 o mayor
           </span>
         </div>
@@ -52,6 +50,7 @@
           <button
             type="submit"
             class="btn btn-primary float-end"
+            [disabled]="miFormulario.invalid"
           >
             Guardar
           </button>
