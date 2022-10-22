@@ -49,7 +49,7 @@
     <div class="col-sm-9" formArrayName="favoritos">
       <div
         class="input-group mb-1"
-        *ngFor="let favorito of miFormulario.controls['favoritos'].value; let i = index"
+        *ngFor="let favorito of favoritosArr.value; let i = index"
       >
         <input
           class="form-control"

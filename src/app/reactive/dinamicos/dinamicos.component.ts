@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-dinamicos',
@@ -16,6 +16,10 @@ export class DinamicosComponent {
       ['Smash Bros', Validators.required]
     ], Validators.required)
   })
+
+  get favoritosArr(){
+    return this.miFormulario.get('favoritos') as FormArray;
+  }
 
   constructor(private fb: FormBuilder) { }
 
