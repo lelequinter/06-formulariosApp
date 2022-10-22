@@ -39,6 +39,13 @@ export class DinamicosComponent {
     this.nuevoFavorito.reset();
   }
 
+  borrar(index: number){
+    // console.log();
+    console.log(this.favoritosArr.controls);
+    this.favoritosArr.removeAt(index)
+
+  }
+
   guardar() {
     // console.log(this.miFormulario.controls['favoritos']);
 
