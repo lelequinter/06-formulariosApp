@@ -11,6 +11,10 @@ export class DinamicosComponent {
 
   miFormulario: FormGroup = this.fb.group({
     nombre: ['', [Validators.required, Validators.minLength(3)]],
+    favoritos: this.fb.array([
+      ['Metal Gear', Validators.required],
+      ['Smash Bros', Validators.required]
+    ], Validators.required)
   })
 
   constructor(private fb: FormBuilder) { }
@@ -21,6 +25,8 @@ export class DinamicosComponent {
   }
 
   guardar() {
+    // console.log(this.miFormulario.controls['favoritos']);
+
     if (this.miFormulario.invalid) {
       this.miFormulario.markAllAsTouched();
       return
