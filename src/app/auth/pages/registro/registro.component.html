@@ -1,7 +1,7 @@
 <h2>Validaciones Reactivas</h2>
 <hr />
 
-<div class="row">
+<div class="row" (ngSubmit)="submitFormulario()" [formGroup]="miFormulario">
   <div class="col">
     <form autocomplete="off">
       <!-- Nombre -->
@@ -12,13 +12,19 @@
             type="text"
             class="form-control"
             placeholder="Nombre del usuario"
+            formControlName="nombre"
           />
-          <span class="form-text text-danger"> Debe de ser en formato de nombre y apellido </span>
+          <span
+          class="form-text text-danger"
+          *ngIf="campoNoValido('nombre')"
+          >
+          Debe de ser en formato de nombre y apellido
+          </span>
         </div>
       </div>
       <!-- Email -->
       <div class="row mb-3">
-        <label class="col-sm-3 col-form-label">e-mail</label>
+        <label class="col-sm-3 col-form-label">Email</label>
         <div class="col-sm-9">
           <input
             type="email"
@@ -72,3 +78,7 @@
     </form>
   </div>
 </div>
+
+<h5>Form Valid: {{ miFormulario.valid }}</h5>
+<h5>Nombre</h5>
+<pre>{{ miFormulario.controls['nombre'].errors | json }}</pre>
