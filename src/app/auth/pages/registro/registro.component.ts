@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { noPuedeSerStrider, nombreApellidoPattern, emailPattern } from '../../../shared/validators/validaciones';
 import { ValidatorsService } from '../../../shared/validators/validators.service';
 
 @Component({
@@ -15,7 +14,13 @@ export class RegistroComponent implements OnInit {
     nombre: ['', [Validators.required, Validators.pattern(this.validatorsSvc.nombreApellidoPattern)]],
     email: ['', [Validators.required, Validators.pattern(this.validatorsSvc.emailPattern)]],
     username: ['', [Validators.required, this.validatorsSvc.noPuedeSerStrider]],
-  })
+    password: ['', [Validators.required, Validators.minLength(6)]],
+    password2: ['', [Validators.required, ]],
+  },
+  {
+    validators: [ this.validatorsSvc.camposIguales('password', 'password2') ]
+  }
+  )
 
   constructor(private fb: FormBuilder, private validatorsSvc: ValidatorsService) { }
 
